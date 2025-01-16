@@ -1,0 +1,2 @@
+arrow = error
+opposite = opposide
