@@ -90,6 +90,14 @@ int main()
         if (turn)
         {
             int maxGuess = (moveNumber == 1) ? numberOfItems - 1 : min(2 * aiGuessNumber, numberOfItems);
+            if (moveNumber == 1)
+            {
+                maxGuess = numberOfItems - 1;
+            }
+            else
+            {
+                maxGuess = min(2 * aiGuessNumber, numberOfItems);
+            }
             cout << "Enter your guess(1-" << maxGuess << "): ";
             cin >> userGuessNumber;
             while (userGuessNumber < 1 || userGuessNumber > maxGuess)
