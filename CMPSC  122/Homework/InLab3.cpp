@@ -1,3 +1,19 @@
+// Academic Integrity Affidavit:
+// I certify that this program code is my work. Others may have
+// assisted me with planning and concepts, but the code was written,
+// solely, by me.
+// I understand that submitting code that is totally or partially
+// the product of other individuals is a violation of the Academic
+// Integrity Policy and accepted ethical precepts. Falsified
+// execution results are also results of improper activities. Such
+// violations may result in zero credit for the assignment, reduced
+// credit for the assignment, or course failure.
+//
+// Name: <Ryan Reagle>
+// Section: <003L>
+// Assignment: Lab 03
+//
+
 #include <iostream>
 #include <iomanip>
 
@@ -83,3 +99,16 @@ int main()
 
 	return 0;
 }
+
+/* -------------------------------------------------------------------------- */
+/*                                   OUTPUT                                   */
+/* -------------------------------------------------------------------------- */
+
+/*
+ryanreagle@Ryans-MacBook-Pro-2 output % ./"InLab3"
+Sorted array A: : 11 33 55 77 99 
+Sorted array B: : 22 44 66 88 
+Append B to A:  : 11 33 55 77 99 22 44 66 88 
+Merge A to B:   : 11 22 33 44 55 66 77 88 99 
+ryanreagle@Ryans-MacBook-Pro-2 output % 
+*/
