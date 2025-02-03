@@ -588,8 +588,10 @@ int main()
 	// passwordValidation("Passsword123");
 
 	//cout << evalAlgebra("1 + x = 3") << endl;
-	//cout << evalAlgebra("2 + x = 19") << endl;
-	//cout << evalAlgebra("x + 2 = 6") << endl;//? always outputs 7
+	cout << evalAlgebra("2 - x = 1") << endl;
+	cout << evalAlgebra("2 + x = 8") << endl;//? always outputs the final answer, not the value of x if in format of (x + 2 = 8)
+	
+	
 
 	// timeToBinary("10:37:49");
 
