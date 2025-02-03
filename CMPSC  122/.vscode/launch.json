@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": ".",
-      "program": "build/Debug/outDebug"
+      "cwd": "/Users/ryanreagle/Documents/GitHub/Penn State Comp Sci/Penn-State-CPP/CMPSC  122/Labs",
+      "program": "/Users/ryanreagle/Documents/GitHub/Penn State Comp Sci/Penn-State-CPP/CMPSC  122/Labs/build/Debug/outDebug"
     }
   ]
 }
