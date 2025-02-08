@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstring>
 // You need to create LabProj3.h and write the prototypes of the two functions in it
-#include "LabProj3.h"
+#include "LabProj3.cpp"
 using namespace std;
 
 // Functions to test your program, DO NOT modify
