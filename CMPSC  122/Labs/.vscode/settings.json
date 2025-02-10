@@ -40,7 +40,8 @@
   "C_Cpp_Runner.includePaths": [],
   "C_Cpp_Runner.includeSearch": [
     "*",
-    "**/*"
+    "**/*",
+    "*.h"
   ],
   "C_Cpp_Runner.excludeSearch": [
     "**/build",
