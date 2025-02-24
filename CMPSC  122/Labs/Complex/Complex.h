@@ -35,6 +35,8 @@ public:
 private:
    double re; // real part
    double im; // imaginary part
+
+
 };
 
 #endif
