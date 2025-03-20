@@ -273,7 +273,7 @@ Process for multiplication and division:
 
 */
 
-int evalAlgebra(string s)
+/*int evalAlgebra(string s)
 {
 	int x = 0;
 
@@ -364,7 +364,11 @@ int evalAlgebra(string s)
 	}
 	return x;
 }
+	*/
 
+int evalAlgebra(string s){
+	
+}
 /* -------------------------------------------------------------------------- */
 /*        given time as a string,return the time in binary as hh:mm:ss 		  */
 /* -------------------------------------------------------------------------- */

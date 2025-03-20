@@ -83,6 +83,7 @@ int main(){
 
     cout << evalAlgebra("2 + x = 5") << endl;
     cout << evalAlgebra("2 + 3 = x") << endl;
+    cout << evalAlgebra("2 * x = 10") << endl;
 
 
 

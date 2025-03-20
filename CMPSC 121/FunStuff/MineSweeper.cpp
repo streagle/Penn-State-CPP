@@ -10,6 +10,9 @@
 
 using namespace std;
 
+//!! Limit size of board
+//!! Segmentation fault
+
 char keep_playing = 'y';
 
 // Function to display the game board

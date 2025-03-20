@@ -1,5 +1,5 @@
 ---
 triple:          'arm64-apple-darwin'
-binary-path:     '/Users/ryanreagle/Documents/GitHub/Penn State Comp Sci/psuCPP/FunStuff/output/words'
+binary-path:     '/Users/ryanreagle/Documents/GitHub/Penn State Comp Sci/Penn-State-CPP/CMPSC 121/FunStuff/output/words'
 relocations:     []
 ...
