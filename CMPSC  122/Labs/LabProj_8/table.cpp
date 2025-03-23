@@ -128,9 +128,19 @@ int main()
 
     int totalLargeTables, totalSmallTables;
     cout << "Enter the total number of large tables: ";
-    cin >> totalLargeTables;
+    do {
+        cin >> totalLargeTables;
+        if (totalLargeTables < 1) {
+            cout << "Invalid input! Please enter a number greater than 0." << endl;
+        }
+    } while (totalLargeTables < 1);
     cout << "Enter the total number of small tables: ";
-    cin >> totalSmallTables;
+    do {
+        cin >> totalSmallTables;
+        if (totalSmallTables < 1) {
+            cout << "Invalid input! Please enter a number greater than 0." << endl;
+        }
+    } while (totalSmallTables < 1);
     cin.ignore(); // To clear the newline character from the input buffer
 
     queue<string> largeWaitingLine;
@@ -276,12 +286,20 @@ int main()
             cout << "Large tables: " << totalLargeTables - largeTables << " / " << totalLargeTables << endl;
             cout << smallWaitingLine.size() << " customer(s) waiting for small table." << endl;
             cout << largeWaitingLine.size() << " customer(s) waiting for large table." << endl;
+        } /* ---------------------------------- EXIT ---------------------------------- */
+        else if (command == "exit")
+        {
+            break;
         }
+         /* -------------------------------------------------------------------------- */
         else
         {
             cout << "Invalid command!" << endl;
         }
         /* -------------------------------------------------------------------------- */
+
+       
+       
     }
     return 0;
 }
