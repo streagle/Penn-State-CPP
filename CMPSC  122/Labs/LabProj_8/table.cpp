@@ -159,13 +159,13 @@ int main()
 
         /* -------------------------------- NEW LARGE ------------------------------- */
 
-        if (command.rfind("new large ", 0) == 0) // Check if command starts with "new large "
+        if (command.substr(0, 10) == "new large ") // Check if command starts with "new large ", checks the first 10 characters 
         {
             string name = command.substr(10); // Extract the name after "new large "
             if (name.empty())
             {
-                cout << "Invalid command! Please provide a name after 'new large'." << endl;
-                continue;
+            cout << "Invalid command! Please provide a name after 'new large'." << endl;
+            continue;
             }
 
             handleNewCustomer(largeTablequeue, largeWaitingLine, largeTables, name, "large");
@@ -173,13 +173,13 @@ int main()
         /* -------------------------------------------------------------------------- */
 
         /* -------------------------------- NEW SMALL ------------------------------- */
-        else if (command.rfind("new small ", 0) == 0) // Check if command starts with "new small "
+        else if (command.substr(0, 10) == "new small ") // Check if command starts with "new small "
         {
             string name = command.substr(10); // Extract the name after "new small "
             if (name.empty())
             {
-                cout << "Invalid command! Please provide a name after 'new large'." << endl;
-                continue;
+            cout << "Invalid command! Please provide a name after 'new small'." << endl;
+            continue;
             }
 
             handleNewCustomer(smallTablequeue, smallWaitingLine, smallTables, name, "small");
@@ -187,15 +187,8 @@ int main()
         /* -------------------------------------------------------------------------- */
 
         /* ----------------------------- CHECKOUT LARGE ----------------------------- */
-        else if (command.rfind("checkout large ", 0) == 0) // Check if command starts with "checkout large "
+        else if (command == "checkout large") // Check if command is "checkout large"
         {
-            string name = command.substr(15); // Extract the name after "checkout large "
-            if (name.empty())
-            {
-            cout << "Invalid command! Please provide a name after 'checkout large'." << endl;
-            continue;
-            }
-
             if (largeTablequeue.empty())
             {
             cout << "No customer occupied any large table!" << endl;
@@ -204,48 +197,34 @@ int main()
             else
             {
             string currentCustomer = largeTablequeue.front();
-            if (currentCustomer == name)
-            {
-                cout << "Customer " << name << " has checked out from a large table." << endl;
-                largeTablequeue.pop();
+            cout << "Customer " << currentCustomer << " has checked out from a large table." << endl;
+            largeTablequeue.pop();
 
-                if (!largeWaitingLine.empty())
-                {
+            if (!largeWaitingLine.empty())
+            {
                 string nextCustomer = largeWaitingLine.front();
                 largeWaitingLine.pop();
                 largeTablequeue.push(nextCustomer);
                 cout << "Next customer " << nextCustomer << " takes an available large table." << endl;
-                }
-                else if (!smallWaitingLine.empty())
-                {
+            }
+            else if (!smallWaitingLine.empty())
+            {
                 string nextCustomer = smallWaitingLine.front();
                 smallWaitingLine.pop();
                 largeTablequeue.push(nextCustomer);
                 cout << "Next customer " << nextCustomer << " takes an available large table." << endl;
-                }
-                else
-                {
-                largeTables++;
-                }
             }
             else
             {
-                cout << "Error: Customer " << name << " is not occupying a large table." << endl;
+                largeTables++;
             }
             }
         }
         /* -------------------------------------------------------------------------- */
 
         /* ----------------------------- CHECKOUT SMALL ----------------------------- */
-        else if (command.rfind("checkout small ", 0) == 0) // Check if command starts with "checkout small "
+        else if (command == "checkout small") // Check if command is "checkout small"
         {
-            string name = command.substr(15); // Extract the name after "checkout small "
-            if (name.empty())
-            {
-            cout << "Invalid command! Please provide a name after 'checkout small'." << endl;
-            continue;
-            }
-
             if (smallTablequeue.empty())
             {
             cout << "No customer occupied any small table!" << endl;
@@ -254,26 +233,19 @@ int main()
             else
             {
             string currentCustomer = smallTablequeue.front();
-            if (currentCustomer == name)
-            {
-                cout << "Customer " << name << " has checked out from a small table." << endl;
-                smallTablequeue.pop();
+            cout << "Customer " << currentCustomer << " has checked out from a small table." << endl;
+            smallTablequeue.pop();
 
-                if (!smallWaitingLine.empty())
-                {
+            if (!smallWaitingLine.empty())
+            {
                 string nextCustomer = smallWaitingLine.front();
                 smallWaitingLine.pop();
                 smallTablequeue.push(nextCustomer);
                 cout << "Next customer " << nextCustomer << " takes an available small table." << endl;
-                }
-                else
-                {
-                smallTables++;
-                }
             }
             else
             {
-                cout << "Error: Customer " << name << " is not occupying a small table." << endl;
+                smallTables++;
             }
             }
         }
