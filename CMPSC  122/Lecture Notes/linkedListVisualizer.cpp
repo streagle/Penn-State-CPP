@@ -10,16 +10,9 @@
 
 using namespace std;
 
-/*
 
 
-
-
-*/
-
-
-
-
+ 
 // Define the structure for a node in the linked list
 
 struct Node {
@@ -115,6 +108,17 @@ void insertBeforeNumber(Node** head_ref, int number, int new_data) {
     cout << "Number " << number << " not found\n";
 }
 
+void insertAfterPosition(Node** head_ref, int position, int new_data) {
+    Node* temp = *head_ref;
+    for (int i = 1; temp && i < position; i++) temp = temp->next;
+    if (!temp) {
+        cout << "Position " << position << " not found\n";
+        return;
+    }
+    insertAfter(temp, new_data);
+}
+
+
 void options(){
     cout << "1. Insert a node at the beginning of the linked list" << endl;
     cout << "2. Insert a node after a given number" << endl;
@@ -123,6 +127,7 @@ void options(){
     cout << "5. Insert a node before a given number" << endl;
     cout << "6. Display each list and fill in the next pointer with what its pointing to in a new line" << endl;
     cout << "7. Exit" << endl;
+    cout << "8. Insert a node after a given position" << endl;
 }
 
 int main(){
@@ -210,6 +215,17 @@ int main(){
                 break;
             case 7:
                 loop = false;
+                break;
+            case 8:
+                int position;
+                cout << "Enter the position you want to insert after: ";
+                cin >> position;
+                cout << "Enter the number you want to insert: ";
+                cin >> insertNumber;
+                insertAfterPosition(&head, position, insertNumber);
+                cout << "Updated linked list is: ";
+                printList(head);
+                cout << endl;
                 break;
             default:
                 cout << "Invalid choice" << endl;
