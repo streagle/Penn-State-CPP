@@ -1,13 +1,7 @@
 #include <iostream>
-#include <iomanip>
-#include <cmath>
 #include <string>
-#include <fstream>
-#include <stack>
-#include <queue>
 #include <random>
 #include <ctime>
-
 using namespace std;
 //Methods
 
@@ -18,8 +12,7 @@ string generateWord(){
     "guitar", "house", "island", "jacket", "kitten", "lemon", "mouse", 
     "night", "orange", "pizza", "queen", "robot", "sunset"
     };
-    //!! instead of hardcoding the random number, get size of list
-    int randomIndex = rand() % 19;
+    int randomIndex = rand() % words -> size();
     return words[randomIndex];
 }
 

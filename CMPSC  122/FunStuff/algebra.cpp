@@ -33,7 +33,7 @@ double evalAlgebra(string equation){
     //find the operator
     char op = equation[opPos];
     //find the variable
-    char var = equation[varPos];
+    //char var = equation[varPos];
     //find the first number
     double num1 = stod(equation.substr(numPos, varPos - numPos));
     //find the second number

@@ -591,10 +591,14 @@ int main()
 	// passwordValidation("password123");
 	// passwordValidation("Passsword123");
 
-	//cout << evalAlgebra("1 + x = 3") << endl;
+/* ------------------------------ eval Algebra ------------------------------ */
+	/*
+	cout << evalAlgebra("1 + x = 3") << endl;
 	cout << evalAlgebra("2 - x = 1") << endl;
-	cout << evalAlgebra("2 + x = 8") << endl;//? always outputs the final answer, not the value of x if in format of (x + 2 = 8)
+	cout << evalAlgebra("2 + x = 8") << endl;
 	cout << evalAlgebra("2 + 2 = x") << endl;
+	*/
+	
 	
 	
 

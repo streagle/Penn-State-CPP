@@ -1,8 +1,8 @@
 //This project is a game of tic-tac-toe with a working AI as an opponent
 
-//TODO: Add a way to check for a tie game
 //TODO: Add a way to play again
 //TODO: Make the AI harder to beat
+
 
 #include <iostream>
 #include <iomanip>
@@ -53,6 +53,17 @@ bool checkWinner(char board[3][3], char player){
     return false;
 }
 
+bool checkTie(char board[3][3]){
+    for (int i = 0; i < 3; i++){
+        for (int j = 0; j < 3; j++){
+            if (board[i][j] == ' '){
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
 //AI
 void ai(char board[3][3]){
     //Random number generator
@@ -99,12 +110,24 @@ while (!winner){
         gameBoard(board);
         break;
     }
+    //check for tie
+    if (checkTie(board)){
+        cout << "Tie game!" << endl;
+        gameBoard(board);
+        break;
+    }
     //AI
     ai(board);
     //Check for winner
     winner = checkWinner(board, 'O');
     if (winner){
         cout << "Player O wins!" << endl;
+        gameBoard(board);
+        break;
+    }
+    //check for tie
+    if (checkTie(board)){
+        cout << "Tie game!" << endl;
         gameBoard(board);
         break;
     }

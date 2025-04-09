@@ -10,37 +10,37 @@
 
 using namespace std;
 
-//!! Limit size of board
-//!! Segmentation fault
+
+
 
 char keep_playing = 'y';
 
 // Function to display the game board
 void displayBoard(char **board, char **revealed, int rows, int columns)
 {
-    cout << "   ";
+    cout << "    "; // Add extra space for alignment
     for (int j = 0; j < columns; j++)
     {
-        cout << j + 1 << " ";
+        cout << setw(3) << j + 1; // Use setw(3) for consistent spacing
     }
     cout << endl;
 
     for (int i = 0; i < rows; i++)
     {
-        cout << setw(2) << i + 1 << " ";
+        cout << setw(3) << i + 1 << " "; // Adjust row numbers to align with column headers
         for (int j = 0; j < columns; j++)
         {
             if (revealed[i][j] == 1)
             {
-                cout << board[i][j] << " ";
+                cout << setw(3) << board[i][j]; // Use setw(3) for consistent spacing
             }
             else if (revealed[i][j] == 2)
             {
-                cout << "? ";
+                cout << setw(3) << "?";
             }
             else
             {
-                cout << "# ";
+                cout << setw(3) << "#";
             }
         }
         cout << endl;
@@ -182,13 +182,14 @@ void markCell(char **revealed, int row, int column)
     }
 }
 
-//Function to clear the consol (checks the platform then runs the appropriate command to clear the consol)
-void clearConsol(){
-    #ifdef _WIN32
-        system("cls");
-    #else
-        system("clear");
-    #endif
+// Function to clear the consol (checks the platform then runs the appropriate command to clear the consol)
+void clearConsol()
+{
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
 }
 
 int main()
@@ -198,14 +199,36 @@ int main()
     int mines;
     int row;
     int column;
+    int max_size = 40;
 
     cout << "Welcome to Minesweeper!" << endl;
-    cout << "How many rows would you like the game to have? ";
-    cin >> rows;
-    cout << "How many columns would you like the game to have? ";
-    cin >> columns;
-    cout << "How many mines would you like the game to have? ";
-    cin >> mines;
+    do
+    {
+        cout << "How many rows would you like the game to have? ";
+        cin >> rows;
+        if (rows > max_size)
+        {
+            cout << "The number of rows cannot exceed " << max_size << "." << endl;
+        }
+    } while (rows > max_size);
+    do
+    {
+        cout << "How many columns would you like the game to have? ";
+        cin >> columns;
+        if (columns > max_size)
+        {
+            cout << "The number of columns cannot exceed " << max_size << "." << endl;
+        }
+    } while (columns > max_size);
+    do
+    {
+        cout << "How many mines would you like the game to have? ";
+        cin >> mines;
+        if (mines >= rows * columns)
+        {
+            cout << "The number of mines cannot be equal or exceed the number of cells on the board." << endl;
+        }
+    } while (mines > rows * columns);
 
     // Create dynamic 2D arrays for the game board and revealed board
     char **game_board = new char *[rows];
@@ -247,7 +270,7 @@ int main()
             row -= 1;
             column -= 1;
             revealCell(game_board, revealed_board, rows, columns, row, column);
-            //clear the screen
+            // clear the screen
             clearConsol();
             displayBoard(game_board, revealed_board, rows, columns);
 

@@ -1,5 +1,5 @@
 ---
 triple:          'arm64-apple-darwin'
-binary-path:     '/Users/ryanreagle/Documents/GitHub/Penn State Comp Sci/psuCPP/LearningNotes/output/test2'
+binary-path:     '/Users/ryanreagle/Documents/GitHub/Penn State Comp Sci/Penn-State-CPP/CMPSC 121/LearningNotes/output/test2'
 relocations:     []
 ...
